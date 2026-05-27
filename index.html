@@ -253,7 +253,7 @@
 
 <div id="app" v-cloak>
     <div class="screen-fade" :class="!showPos && !showWheel ? 'screen-visible' : 'screen-hidden'">
-    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-50 transition-all duration-300">
+    <header v-show="!menuOnlyMode" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-xl font-serif-en tracking-widest font-semibold uppercase hover-target">LI BAR</div>
             <nav class="hidden md:flex gap-8 text-[11px] tracking-[0.15em] uppercase text-gray-500">
@@ -266,7 +266,7 @@
         </div>
     </header>
 
-    <section class="h-[100dvh] w-full relative flex flex-col justify-end pb-20 px-6 md:px-12 pt-24 hover-target-dark">
+    <section v-show="!menuOnlyMode" class="h-[100dvh] w-full relative flex flex-col justify-end pb-20 px-6 md:px-12 pt-24 hover-target-dark">
         <div class="absolute inset-0 z-0 img-mask reveal-up">
             <img src="images/1.jpg" alt="Atmosphere" class="img-scale opacity-95">
             <div class="absolute inset-0 bg-black/10"></div>
@@ -284,7 +284,7 @@
 
     </section>
 
-    <section id="event" class="py-20 md:py-40 px-6 max-w-7xl mx-auto">
+    <section v-show="!menuOnlyMode" id="event" class="py-20 md:py-40 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
             <div class="lg:col-span-5 reveal-up">
                 <div class="text-[10px] tracking-[0.25em] text-gray-400 uppercase mb-4">Spring 2026</div>
@@ -303,7 +303,7 @@
         </div>
     </section>
 
-    <section id="about" class="py-20 md:py-32 bg-[#faf9f7] px-6">
+    <section v-show="!menuOnlyMode" id="about" class="py-20 md:py-32 bg-[#faf9f7] px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32">
                 <div class="relative h-[45vh] md:h-[70vh] mb-6 lg:mb-0">
@@ -335,19 +335,19 @@
         </div>
     </section>
 
-    <section class="w-full h-[35vh] md:h-[50vh] img-mask reveal-up">
+    <section v-show="!menuOnlyMode" class="w-full h-[35vh] md:h-[50vh] img-mask reveal-up">
         <img src="images/5.jpg" class="img-scale object-cover object-[50%_70%]">
     </section>
 
-    <section id="menu" class="py-20 md:py-40 px-6 max-w-5xl mx-auto">
+    <section id="menu" class="px-6 max-w-5xl mx-auto" :class="menuOnlyMode ? 'py-12 md:py-16' : 'py-20 md:py-40'">
         <div class="text-center mb-16 md:mb-24 reveal-up">
             <h2 class="text-4xl md:text-6xl font-serif-en mb-6">The Menu</h2>
             <div class="w-8 h-px bg-black mx-auto mb-6"></div>
-            <p class="text-[10px] tracking-[0.3em] text-gray-400 uppercase">Fruit Cocktails & Classic&Twists</p>
+            <p v-if="!menuOnlyMode" class="text-[10px] tracking-[0.3em] text-gray-400 uppercase">Fruit Cocktails & Classic&Twists</p>
         </div>
 
         <div class="mb-24 md:mb-32 reveal-up">
-            <h3 class="text-xl md:text-2xl font-serif-en mb-10 md:mb-12 tracking-widest uppercase text-gray-800">Fruit Cocktails <span class="text-xs text-gray-400 font-serif-cn normal-case italic ml-3">水果鸡尾酒</span></h3>
+            <h3 v-if="!menuOnlyMode" class="text-xl md:text-2xl font-serif-en mb-10 md:mb-12 tracking-widest uppercase text-gray-800">Fruit Cocktails <span class="text-xs text-gray-400 font-serif-cn normal-case italic ml-3">水果鸡尾酒</span></h3>
             
             <div v-if="fruitCocktails.length" class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-10 md:gap-y-12">
                 <div v-for="(drink, index) in fruitCocktails" :key="drink.id" 
@@ -373,11 +373,11 @@
             </div>
         </div>
 
-        <div class="w-full h-48 md:h-96 img-mask reveal-up mb-24 md:mb-32 mt-24 md:mt-32">
+        <div v-show="!menuOnlyMode" class="w-full h-48 md:h-96 img-mask reveal-up mb-24 md:mb-32 mt-24 md:mt-32">
             <img src="images/6.jpg" class="img-scale">
         </div>
 
-        <div class="reveal-up mt-24 md:mt-32">
+        <div v-show="!menuOnlyMode" class="reveal-up mt-24 md:mt-32">
             <h3 class="text-xl md:text-2xl font-serif-en mb-10 md:mb-12 tracking-widest uppercase text-gray-800">Classic&Twists <span class="text-xs text-gray-400 font-serif-cn normal-case italic ml-3">经典&改编（欢迎与我们沟通风味偏好）</span></h3>
             
             <div class="space-y-14 md:space-y-16">
@@ -411,7 +411,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#111] text-white pt-20 md:pt-24 pb-12 px-6 hover-target-dark relative overflow-hidden">
+    <footer v-show="!menuOnlyMode" class="bg-[#111] text-white pt-20 md:pt-24 pb-12 px-6 hover-target-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20 reveal-up">
                 <div class="img-mask h-48 md:h-80"><img src="images/7.jpg" class="img-scale"></div>
@@ -720,6 +720,7 @@
     const POS_DOUBLE_TAP_MS = 320;
     const POS_SINGLE_CLICK_DECISION_MS = 240;
     const WHEEL_ENABLED = false;
+    const MENU_ONLY_MODE = true;
 
     const getServiceDateKey = (timestamp = Date.now()) => {
         const date = new Date(timestamp);
@@ -759,15 +760,19 @@
     ];
 
     const fruitCocktailsList = [
-        { id: 88, name: 'BALE', subName: '芭乐', price: '48', color: '#C46243', tags: 'Credits: Carrot、Alan', desc: '红心芭乐（番石榴） / 哈瓦那三年白朗姆 / 三得利奏白桃利口酒\n 顾客要求用芭乐做酒，我创作了这杯，吧台的所有人都喜欢。\n15%abv 短饮' },
-        { id: 28, name: 'Tangerine', subName: '蜜柑', price: '48', color: '#C46243', tags: 'Credits: Gin', desc: '诺迪斯金酒 / 添加利金酒 / 金巴利配制酒 / 三得利奏白桃利口酒 / 绿薄荷利口酒 / 新鲜橙汁\n用橙子与白桃交织出甜美清凉的柑橘风味。\n14%abv 短饮'},
-        { id: 101, name: 'Lychee', subName: '荔枝', price: '48', color: '#4F4F48', desc: '灰雁伏特加 / 干味美思 / 荔枝 / 葡萄 / \n干净清甜的荔枝味饮品。\n18%abv 短饮' },
-        { id: 102, name: 'Watermelon', subName: '西瓜', price: '38', color: '#F596AA', desc: '西瓜澄清液 / 椰青 / Fino雪莉酒 / 蔗园三星白朗姆 / 苦艾酒 / 佩乔苦精 / 法兰纳姆糖浆 \n在我身上有一个不可战胜的夏天。\n6%abv 长饮' },
-        { id: 103, name: 'Grape', subName: '葡萄', price: '48', color: '#954A45',desc: '必富达金酒 / 圣哲曼接骨木花利口酒 / 葡萄 / 青柠汁 / 基础糖浆 / 泰象苏打水 \n清爽的葡萄味花香气泡鸡尾酒。\n8%abv 长饮' },
-        { id: 104, name: 'Wax Apple', subName: '莲雾', price: '38', color: '#D7C4BB', desc: 'Fino雪莉酒 / 干味美思 / 莲雾 / 君度橙酒 / 橙味苦精 \n竹子鸡尾酒的改编，莲雾带来幽玄的氛围感受。\n14%abv 短饮' },
-        { id: 105, name: 'Around the Frozen World', subName: '环游世界（冰沙）', price: '48', color: '#7BA23F', desc: '植物学家金酒 / 诺迪斯金酒 / 新鲜薄荷 / 绿薄荷利口酒 / 新鲜菠萝汁 \n环游世界，再次复活。\n12%abv 短饮' },
-        { id: 106, name: 'Blueberry', subName: '蓝莓（甜品）', price: '48', color: '#3C2F41', desc: '植物学家金酒 / 黑加仑利口酒 / 香草曲奇冰激淋 / 蓝莓 / 鲜牛奶 \n鸡尾酒与冰激淋的碰撞，甜甜甜美。\n7%abv 短饮' },
-        { id: 106, name: 'Passion Fruit', subName: '百香果', price: '38', color: '#F75C2F', desc: '阿卡维拉斯龙舌兰 / Fino雪莉酒 / 鲜榨橙汁 / 百香果 \n新鲜浓郁的百香果热情四溢。\n12%abv 短饮' }
+        { id: 201, name: 'Brancolada', subName: '菲奈特飘香', price: '48', color: '#6b4226', tags: '长饮', desc: '' },
+        { id: 202, name: 'Farewell', subName: '谢幕', price: '48', color: '#4c0519', tags: '短饮', desc: '' },
+        { id: 203, name: 'Long Island Iced Tea', subName: '长岛冰茶', price: '38', color: '#1e3a8a', tags: '长饮', desc: '金龙舌兰 / 哥顿金酒 / 百加得白朗姆 / 伏特加 / 君度橙酒 / 黄柠片 / 青柠汁 / 基础糖浆 / 可口可乐\n无害的茶色下藏着五种基酒的烈性,后劲十足。\n17%abv 长饮' },
+        { id: 204, name: 'Zombie', subName: '僵尸', price: '38', color: '#166534', tags: '长饮', desc: '' },
+        { id: 205, name: 'Gimlet', subName: '琴蕾', price: '38', color: '#6b7280', tags: '短饮', desc: '金酒 / 柠檬汁 / 基础糖浆\n青柠的酸与金酒的凛冽，干净利落\n20%abv 短饮' },
+        { id: 206, name: 'Bale', subName: '芭乐', price: '48', color: '#C46243', tags: '短饮', desc: '红心芭乐（番石榴） / 哈瓦那三年白朗姆 / 三得利奏白桃利口酒\n顾客要求用芭乐做酒，我创作了这杯，吧台的所有人都喜欢。\n15%abv 短饮' },
+        { id: 207, name: 'Tommy Margarita', subName: '汤米玛格丽特', price: '38', color: '#b45309', tags: '长饮', desc: '' },
+        { id: 208, name: 'M-30 Rain', subName: '雨', price: '38', color: '#475569', tags: '短饮', desc: '' },
+        { id: 209, name: 'Aperol Spritz', subName: '阿佩罗橙光', price: '38', color: '#f75c2f', tags: '长饮', desc: '' },
+        { id: 210, name: 'Chocolate Coffee Martini', subName: '巧克力咖啡马天尼', price: '48', color: '#78350f', tags: '中饮', desc: '伏特加 / 咖啡利口酒 / 浓缩咖啡液 / 基础糖浆\n非常规的味觉体验\n20%abv 短饮' },
+        { id: 211, name: 'Yukiguni', subName: '雪国', price: '38', color: '#94a3b8', tags: '短饮', desc: '' },
+        { id: 212, name: 'Iron Ranger', subName: '钢铁游侠', price: '48', color: '#828282', tags: '长饮', desc: '波本威士忌 / 菠萝汁 / 柠檬汁 / 基础糖浆 / 法兰纳姆糖浆 / 苦精\n浓郁的威士忌配上热带风情的材料，热烈奔放。\n11%abv 长饮' },
+        { id: 213, name: 'Darquiri', subName: '待其利', price: '38', color: '#6b7280', tags: '短饮', desc: '百加得白朗姆 / 蔗园三星朗姆酒 / 青柠汁 / 基础糖浆 / 食盐\n海明威钟情的朗姆鸡尾酒，清凉又酸爽的味觉体验。\n20%abv 短饮' }
     ];
     const anniversaryWheelOptions = [
         { key: 'off-3', label: '3元优惠', discount: 3, weight: 70, start: 0, end: 70 },
@@ -785,6 +790,7 @@
             const isWheelSpinning = ref(false);
             const highlightedWheelOptionKey = ref('');
             const wheelEnabled = ref(WHEEL_ENABLED);
+            const menuOnlyMode = ref(MENU_ONLY_MODE);
             const showWheel = ref(false);
             const showPos = ref(false);
             const showRecipePreview = ref(false);
@@ -1280,6 +1286,7 @@
                 isWheelSpinning,
                 highlightedWheelOptionKey,
                 wheelEnabled,
+                menuOnlyMode,
                 showWheel,
                 showPos,
                 showRecipePreview,
