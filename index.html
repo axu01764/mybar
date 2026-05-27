@@ -304,7 +304,7 @@
 
 <div id="app" v-cloak>
     <div class="screen-fade" :class="!showPos && !showWheel ? 'screen-visible' : 'screen-hidden'">
-    <header v-show="guitarLandingMode" class="paper-surface fixed top-0 w-full z-50 border-b border-[#d8c8aa]/60 transition-all duration-300">
+    <header v-show="guitarLandingMode" class="fixed top-0 w-full z-50 border-b border-[#d8c8aa]/60 bg-[#f5edd8]/80 backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-xl font-serif-en tracking-widest font-semibold uppercase hover-target">LI BAR</div>
             <nav class="hidden md:flex gap-8 text-[11px] tracking-[0.15em] uppercase text-gray-500">
@@ -469,11 +469,11 @@
         </div>
     </section>
 
-    <section v-show="guitarLandingMode" class="paper-surface h-[100dvh] w-full img-mask reveal-up flex items-center justify-center">
+    <section v-show="guitarLandingMode" class="h-[100dvh] w-full img-mask reveal-up flex items-center justify-center">
         <img src="images/guitar3.png" alt="Guitar Club Live Moment" class="img-scale !object-contain object-center">
     </section>
 
-    <footer v-show="guitarLandingMode || !menuOnlyMode" class="paper-surface text-[#1a1a1a] pt-20 md:pt-24 pb-12 px-6 relative overflow-hidden">
+    <footer v-show="guitarLandingMode || !menuOnlyMode" class="text-[#1a1a1a] pt-20 md:pt-24 pb-12 px-6 relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20 reveal-up">
                 <div class="img-mask h-48 md:h-80"><img src="images/7.jpg" class="img-scale"></div>
