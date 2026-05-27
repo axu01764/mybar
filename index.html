@@ -35,13 +35,12 @@
         body {
             background-color: var(--bg-color);
             background-image:
-                radial-gradient(circle at 18% 24%, var(--paper-dark-speck) 0 0.8px, transparent 1px),
-                radial-gradient(circle at 78% 12%, rgba(42, 31, 19, 0.075) 0 0.7px, transparent 1.1px),
-                radial-gradient(circle at 42% 72%, var(--paper-soft-speck) 0 1px, transparent 1.4px),
-                radial-gradient(circle at 88% 66%, rgba(52, 40, 26, 0.065) 0 0.9px, transparent 1.3px),
-                linear-gradient(105deg, rgba(255, 255, 255, 0.22), transparent 38%, rgba(102, 77, 45, 0.035) 76%, transparent),
-                linear-gradient(0deg, rgba(255, 255, 255, 0.08) 50%, rgba(110, 83, 48, 0.025) 50%);
-            background-size: 47px 47px, 73px 73px, 101px 101px, 137px 137px, 100% 100%, 28px 28px;
+                radial-gradient(circle at 18% 24%, var(--paper-dark-speck) 0 0.7px, transparent 1px),
+                radial-gradient(circle at 78% 12%, rgba(42, 31, 19, 0.055) 0 0.6px, transparent 1px),
+                radial-gradient(circle at 42% 72%, var(--paper-soft-speck) 0 0.8px, transparent 1.2px),
+                radial-gradient(circle at 88% 66%, rgba(52, 40, 26, 0.045) 0 0.7px, transparent 1.2px),
+                linear-gradient(104deg, rgba(255, 255, 255, 0.14), transparent 42%, rgba(106, 77, 43, 0.025) 78%, transparent);
+            background-size: 47px 47px, 73px 73px, 101px 101px, 137px 137px, 100% 100%;
             background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Inter', 'Noto Serif SC', serif;
@@ -57,21 +56,23 @@
             pointer-events: none;
             z-index: -1;
             background:
-                repeating-linear-gradient(92deg, rgba(64, 45, 26, 0.022) 0 1px, transparent 1px 23px),
-                repeating-linear-gradient(2deg, rgba(255, 255, 255, 0.075) 0 1px, transparent 1px 42px);
+                linear-gradient(17deg, transparent 0 78%, rgba(80, 58, 34, 0.030) 78% 79%, transparent 79%),
+                linear-gradient(63deg, transparent 0 84%, rgba(255, 255, 255, 0.085) 84% 85%, transparent 85%),
+                linear-gradient(128deg, transparent 0 72%, rgba(88, 65, 40, 0.024) 72% 73%, transparent 73%),
+                linear-gradient(151deg, transparent 0 88%, rgba(255, 255, 255, 0.070) 88% 89%, transparent 89%);
+            background-size: 54px 31px, 83px 47px, 119px 61px, 157px 89px;
             mix-blend-mode: multiply;
         }
 
         .paper-surface {
             background-color: var(--bg-color);
             background-image:
-                radial-gradient(circle at 18% 24%, var(--paper-dark-speck) 0 0.8px, transparent 1px),
-                radial-gradient(circle at 78% 12%, rgba(42, 31, 19, 0.075) 0 0.7px, transparent 1.1px),
-                radial-gradient(circle at 42% 72%, var(--paper-soft-speck) 0 1px, transparent 1.4px),
-                radial-gradient(circle at 88% 66%, rgba(52, 40, 26, 0.065) 0 0.9px, transparent 1.3px),
-                linear-gradient(105deg, rgba(255, 255, 255, 0.22), transparent 38%, rgba(102, 77, 45, 0.035) 76%, transparent),
-                linear-gradient(0deg, rgba(255, 255, 255, 0.08) 50%, rgba(110, 83, 48, 0.025) 50%);
-            background-size: 47px 47px, 73px 73px, 101px 101px, 137px 137px, 100% 100%, 28px 28px;
+                radial-gradient(circle at 18% 24%, var(--paper-dark-speck) 0 0.7px, transparent 1px),
+                radial-gradient(circle at 78% 12%, rgba(42, 31, 19, 0.055) 0 0.6px, transparent 1px),
+                radial-gradient(circle at 42% 72%, var(--paper-soft-speck) 0 0.8px, transparent 1.2px),
+                radial-gradient(circle at 88% 66%, rgba(52, 40, 26, 0.045) 0 0.7px, transparent 1.2px),
+                linear-gradient(104deg, rgba(255, 255, 255, 0.14), transparent 42%, rgba(106, 77, 43, 0.025) 78%, transparent);
+            background-size: 47px 47px, 73px 73px, 101px 101px, 137px 137px, 100% 100%;
             background-attachment: fixed;
         }
 
@@ -81,8 +82,11 @@
             inset: 0;
             pointer-events: none;
             background:
-                repeating-linear-gradient(92deg, rgba(64, 45, 26, 0.022) 0 1px, transparent 1px 23px),
-                repeating-linear-gradient(2deg, rgba(255, 255, 255, 0.075) 0 1px, transparent 1px 42px);
+                linear-gradient(17deg, transparent 0 78%, rgba(80, 58, 34, 0.030) 78% 79%, transparent 79%),
+                linear-gradient(63deg, transparent 0 84%, rgba(255, 255, 255, 0.085) 84% 85%, transparent 85%),
+                linear-gradient(128deg, transparent 0 72%, rgba(88, 65, 40, 0.024) 72% 73%, transparent 73%),
+                linear-gradient(151deg, transparent 0 88%, rgba(255, 255, 255, 0.070) 88% 89%, transparent 89%);
+            background-size: 54px 31px, 83px 47px, 119px 61px, 157px 89px;
             mix-blend-mode: multiply;
             z-index: 0;
         }
