@@ -61,6 +61,35 @@
             mix-blend-mode: multiply;
         }
 
+        .paper-surface {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 18% 24%, var(--paper-dark-speck) 0 0.8px, transparent 1px),
+                radial-gradient(circle at 78% 12%, rgba(42, 31, 19, 0.12) 0 0.7px, transparent 1.1px),
+                radial-gradient(circle at 42% 72%, var(--paper-soft-speck) 0 1px, transparent 1.4px),
+                radial-gradient(circle at 88% 66%, rgba(52, 40, 26, 0.10) 0 0.9px, transparent 1.3px),
+                linear-gradient(105deg, rgba(255, 255, 255, 0.28), transparent 34%, rgba(102, 77, 45, 0.06) 72%, transparent),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.16) 50%, rgba(110, 83, 48, 0.05) 50%);
+            background-size: 19px 19px, 31px 31px, 43px 43px, 59px 59px, 100% 100%, 4px 4px;
+        }
+
+        .paper-surface::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(92deg, rgba(64, 45, 26, 0.035) 0 1px, transparent 1px 7px),
+                repeating-linear-gradient(2deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 11px);
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        .paper-surface > * {
+            position: relative;
+            z-index: 1;
+        }
+
         @media (pointer: fine) {
             body { cursor: none; }
         }
@@ -269,13 +298,13 @@
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
 
-<div id="preloader" class="fixed inset-0 z-[999] bg-[#f5edd8] flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+<div id="preloader" class="paper-surface fixed inset-0 z-[999] flex items-center justify-center transition-opacity duration-1000 ease-in-out">
     <span class="text-[10px] tracking-[0.4em] font-serif-en uppercase text-gray-400">Alan & Gin</span>
 </div>
 
 <div id="app" v-cloak>
     <div class="screen-fade" :class="!showPos && !showWheel ? 'screen-visible' : 'screen-hidden'">
-    <header v-show="guitarLandingMode" class="fixed top-0 w-full z-50 bg-[#f5edd8]/85 backdrop-blur-md border-b border-[#d8c8aa]/60 transition-all duration-300">
+    <header v-show="guitarLandingMode" class="paper-surface fixed top-0 w-full z-50 border-b border-[#d8c8aa]/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-xl font-serif-en tracking-widest font-semibold uppercase hover-target">LI BAR</div>
             <nav class="hidden md:flex gap-8 text-[11px] tracking-[0.15em] uppercase text-gray-500">
@@ -440,11 +469,11 @@
         </div>
     </section>
 
-    <section v-show="guitarLandingMode" class="h-[100dvh] w-full bg-[#f5edd8] img-mask reveal-up flex items-center justify-center">
+    <section v-show="guitarLandingMode" class="paper-surface h-[100dvh] w-full img-mask reveal-up flex items-center justify-center">
         <img src="images/guitar3.png" alt="Guitar Club Live Moment" class="img-scale !object-contain object-center">
     </section>
 
-    <footer v-show="guitarLandingMode || !menuOnlyMode" class="bg-[#f5edd8] text-[#1a1a1a] pt-20 md:pt-24 pb-12 px-6 relative overflow-hidden">
+    <footer v-show="guitarLandingMode || !menuOnlyMode" class="paper-surface text-[#1a1a1a] pt-20 md:pt-24 pb-12 px-6 relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20 reveal-up">
                 <div class="img-mask h-48 md:h-80"><img src="images/7.jpg" class="img-scale"></div>
