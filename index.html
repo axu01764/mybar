@@ -253,12 +253,12 @@
 
 <div id="app" v-cloak>
     <div class="screen-fade" :class="!showPos && !showWheel ? 'screen-visible' : 'screen-hidden'">
-    <header v-show="!menuOnlyMode" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-50 transition-all duration-300">
+    <header v-show="guitarLandingMode" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-xl font-serif-en tracking-widest font-semibold uppercase hover-target">LI BAR</div>
             <nav class="hidden md:flex gap-8 text-[11px] tracking-[0.15em] uppercase text-gray-500">
                 <a href="#event" class="hover:text-black transition-colors hover-target">Event</a>
-                <a href="#about" class="hover:text-black transition-colors hover-target">About</a>
+                <a v-if="!menuOnlyMode" href="#about" class="hover:text-black transition-colors hover-target">About</a>
                 <a href="#menu" class="hover:text-black transition-colors hover-target">Menu</a>
                 <a v-if="wheelEnabled" href="#" @click.prevent="enterWheel" class="hover:text-black transition-colors hover-target">Wheel</a>
             </nav>
@@ -266,11 +266,11 @@
         </div>
     </header>
 
-    <section v-show="!menuOnlyMode" class="h-[100dvh] w-full relative flex flex-col justify-end pb-20 px-6 md:px-12 pt-24 hover-target-dark">
+    <section v-show="guitarLandingMode" class="h-[100dvh] w-full relative flex flex-col justify-end pb-20 px-6 md:px-12 pt-24 hover-target-dark">
         <div class="absolute inset-0 z-0 img-mask reveal-up">
-            <img src="images/1.jpg" alt="Atmosphere" class="img-scale opacity-95">
-            <div class="absolute inset-0 bg-black/10"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+            <img src="images/guitar2.jpg" alt="Guitar Club Atmosphere" class="img-scale opacity-95">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
         </div>
         
         <div class="relative z-10 max-w-7xl mx-auto w-full reveal-up delay-100">
@@ -284,21 +284,31 @@
 
     </section>
 
-    <section v-show="!menuOnlyMode" id="event" class="py-20 md:py-40 px-6 max-w-7xl mx-auto">
+    <section v-show="guitarLandingMode" id="event" class="py-20 md:py-40 px-6 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
             <div class="lg:col-span-5 reveal-up">
-                <div class="text-[10px] tracking-[0.25em] text-gray-400 uppercase mb-4">Spring 2026</div>
-                <h2 class="text-3xl md:text-5xl font-serif-cn mb-8 leading-tight">水果水果<br><span class="italic font-serif-en text-gray-400">Fruit Party<span></h2>
+                <div class="text-[10px] tracking-[0.25em] text-gray-400 uppercase mb-4">Live Session 2026</div>
+                <h2 class="text-3xl md:text-5xl font-serif-cn mb-8 leading-tight">华理吉他社<br><span class="italic font-serif-en text-gray-400">入学日乐队专场</span></h2>
                 <div class="space-y-6 text-gray-600 font-light leading-relaxed text-sm">
-                    <p>夏季将至，我们急需一场清凉的水果鸡尾酒派对！九款水果鸡尾酒+七款经典清爽鸡尾酒，夏日前的风味狂想曲！</p>
-                    <p>无论你是喜欢清爽的长饮，还是钟情于浓烈的短饮，我们的酒单都能满足你的期待。快来加入我们，一起探索这些令人兴奋的新口味吧！</p>
+                    <p>华理吉他社 “入学日” 乐队专场，将在五月末的夜晚带来属于校园的现场回响。</p>
+                    <p>酒单照常供应，音乐与吧台一起开场。</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-[11px] tracking-[0.16em] uppercase">
+                        <div class="border-t border-gray-200 pt-3">
+                            <div class="text-gray-400 mb-1">Time</div>
+                            <div class="font-serif-cn text-gray-700 tracking-normal">5月30日 18:00-22:00</div>
+                        </div>
+                        <div class="border-t border-gray-200 pt-3">
+                            <div class="text-gray-400 mb-1">Location</div>
+                            <div class="font-serif-cn text-gray-700 tracking-normal">大活325</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-10">
                     <a href="#menu" class="text-[10px] uppercase tracking-widest border-b border-gray-300 pb-1 hover:border-black transition-colors hover-target">Discover the flavors</a>
                 </div>
             </div>
             <div class="lg:col-span-7 img-mask reveal-up delay-200 h-[50vh] md:h-[80vh]">
-                <img src="images/2.jpg" alt="Event Image" class="img-scale object-center">
+                <img src="images/guitar1.jpg" alt="Guitar Club Event" class="img-scale object-center">
             </div>
         </div>
     </section>
@@ -339,7 +349,7 @@
         <img src="images/5.jpg" class="img-scale object-cover object-[50%_70%]">
     </section>
 
-    <section id="menu" class="px-6 max-w-5xl mx-auto" :class="menuOnlyMode ? 'py-12 md:py-16' : 'py-20 md:py-40'">
+    <section id="menu" class="px-6 max-w-5xl mx-auto" :class="guitarLandingMode ? 'py-20 md:py-32' : (menuOnlyMode ? 'py-12 md:py-16' : 'py-20 md:py-40')">
         <div class="text-center mb-16 md:mb-24 reveal-up">
             <h2 class="text-4xl md:text-6xl font-serif-en mb-6">The Menu</h2>
             <div class="w-8 h-px bg-black mx-auto mb-6"></div>
@@ -409,6 +419,11 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section v-show="guitarLandingMode" class="h-[100dvh] w-full bg-black img-mask reveal-up">
+        <img src="images/guitar3.png" alt="Guitar Club Live Moment" class="img-scale object-cover object-center">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10"></div>
     </section>
 
     <footer v-show="!menuOnlyMode" class="bg-[#111] text-white pt-20 md:pt-24 pb-12 px-6 hover-target-dark relative overflow-hidden">
@@ -721,6 +736,7 @@
     const POS_SINGLE_CLICK_DECISION_MS = 240;
     const WHEEL_ENABLED = false;
     const MENU_ONLY_MODE = true;
+    const GUITAR_LANDING_MODE = true;
 
     const getServiceDateKey = (timestamp = Date.now()) => {
         const date = new Date(timestamp);
@@ -791,6 +807,7 @@
             const highlightedWheelOptionKey = ref('');
             const wheelEnabled = ref(WHEEL_ENABLED);
             const menuOnlyMode = ref(MENU_ONLY_MODE);
+            const guitarLandingMode = ref(GUITAR_LANDING_MODE);
             const showWheel = ref(false);
             const showPos = ref(false);
             const showRecipePreview = ref(false);
@@ -1287,6 +1304,7 @@
                 highlightedWheelOptionKey,
                 wheelEnabled,
                 menuOnlyMode,
+                guitarLandingMode,
                 showWheel,
                 showPos,
                 showRecipePreview,
