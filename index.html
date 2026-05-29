@@ -481,11 +481,8 @@
 
     <footer v-show="guitarLandingMode || !menuOnlyMode" class="text-[#1a1a1a] pt-20 md:pt-24 pb-12 px-6 relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16 md:mb-20 reveal-up">
-                <div class="img-mask h-48 md:h-80"><img src="images/7.jpg" class="img-scale"></div>
-                <div class="img-mask h-48 md:h-80 mt-0 lg:mt-12"><img src="images/8.jpg" class="img-scale"></div>
-
-                <div class="flex flex-col justify-center text-center lg:text-left px-4 mt-8 lg:mt-0">
+            <div class="mb-16 md:mb-20 reveal-up">
+                <div class="flex flex-col justify-center text-center px-4 mt-8 lg:mt-0">
                     <h3 class="text-2xl font-serif-en mb-6 text-[#1a1a1a]">Find Us</h3>
 
                     <div class="mb-5 flex justify-center lg:justify-start">
@@ -500,18 +497,7 @@
                         </span><br>
                         <a href="https://b23.tv/KLiRgD0" target="_blank" rel="noopener noreferrer" class="text-[#3f3729] border-b border-[#a99a7a] pb-[2px] hover:text-black hover:border-black transition-all duration-300 hover-target font-serif-cn tracking-wider inline-block mt-1">bilibili主页</a><br>
                         <a href="https://xhslink.com/m/9IN1QDcfLlw" target="_blank" rel="noopener noreferrer" class="text-[#3f3729] border-b border-[#a99a7a] pb-[2px] hover:text-black hover:border-black transition-all duration-300 hover-target font-serif-cn tracking-wider inline-block mt-3">小红书主页</a><br>
-                        <button type="button" id="coffee-trigger" class="text-[#3f3729] border-b border-[#a99a7a] pb-[2px] hover:text-black hover:border-black transition-all duration-300 hover-target font-serif-en tracking-[0.12em] inline-block mt-3 uppercase">Buy me a coffee</button>
                     </p>
-                </div>
-            </div>
-
-            <div id="coffee-modal" class="fixed inset-0 z-[1000] bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 px-6">
-                <div class="w-full h-full flex items-center justify-center">
-                    <div id="coffee-modal-panel" class="relative w-full max-w-sm rounded-2xl border border-white/20 bg-[#171717] p-4 md:p-5 shadow-2xl transform translate-y-3 transition-transform duration-300">
-                        <button type="button" id="coffee-close" class="absolute right-4 top-3 text-[10px] tracking-[0.2em] uppercase text-gray-400 hover:text-white transition-colors duration-300 hover-target">Close</button>
-                        <p class="text-center text-[10px] tracking-[0.24em] uppercase text-gray-300 mb-3 font-serif-en">Buy me a coffee</p>
-                        <img id="coffee-image" src="images/coffee.jpg" alt="WeChat Pay QR Code" class="w-full h-auto rounded-lg border border-white/10 shadow-lg">
-                    </div>
                 </div>
             </div>
 
@@ -745,40 +731,6 @@
             });
         }
 
-        const coffeeTrigger = document.getElementById('coffee-trigger');
-        const coffeeModal = document.getElementById('coffee-modal');
-        const coffeeModalPanel = document.getElementById('coffee-modal-panel');
-        const coffeeClose = document.getElementById('coffee-close');
-        const coffeeImage = document.getElementById('coffee-image');
-
-        if (coffeeImage) {
-            const fallbackSources = ['images/coffee.jpg', 'images/coffee.png', 'images/coffee.jpeg', 'images/coffee.webp'];
-            let fallbackIndex = 0;
-            coffeeImage.addEventListener('error', () => {
-                if (fallbackIndex < fallbackSources.length) {
-                    coffeeImage.src = fallbackSources[fallbackIndex];
-                    fallbackIndex += 1;
-                }
-            });
-        }
-
-        if (coffeeTrigger && coffeeModal && coffeeModalPanel && coffeeClose) {
-            const toggleCoffeeModal = (show) => {
-                coffeeModal.classList.toggle('opacity-0', !show);
-                coffeeModal.classList.toggle('pointer-events-none', !show);
-                coffeeModalPanel.classList.toggle('translate-y-3', !show);
-                document.body.style.overflow = show ? 'hidden' : '';
-            };
-
-            coffeeTrigger.addEventListener('click', () => toggleCoffeeModal(true));
-            coffeeClose.addEventListener('click', () => toggleCoffeeModal(false));
-            coffeeModal.addEventListener('click', (event) => {
-                if (event.target === coffeeModal) toggleCoffeeModal(false);
-            });
-            window.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') toggleCoffeeModal(false);
-            });
-        }
     });
 
     const { createApp, ref, computed, watch, onMounted, onBeforeUnmount, nextTick } = Vue;
@@ -814,7 +766,7 @@
 
     const classicDrinksList = [
         { id: 2, name: 'Gimlet', subName: '琴蕾', price: '38', color: '#6b7280', tags: '干净 / 青柠 / 杜松子', desc: '金酒 / 柠檬汁 / 基础糖浆\n青柠的酸与金酒的凛冽，干净利落\n20%abv 短饮' },
-        { id: 4, name: 'Long Island Iced-tea', subName: '长岛冰茶', price: '38', color: '#1e3a8a', tags: '冰凉 / 柠檬 / 鲜爽', desc: '金龙舌兰 / 哥顿金酒 / 百加得白朗姆 / 伏特加 / 君度橙酒 / 黄柠片 / 青柠汁 / 基础糖浆 / 可口可乐\n无害的茶色下藏着五种基酒的烈性,后劲十足。\n17%abv 长饮' },
+        { id: 4, name: 'Long Island Iced-tea', subName: '长岛冰茶', price: '48', color: '#1e3a8a', tags: '冰凉 / 柠檬 / 鲜爽', desc: '金龙舌兰 / 哥顿金酒 / 百加得白朗姆 / 伏特加 / 君度橙酒 / 黄柠片 / 青柠汁 / 基础糖浆 / 可口可乐\n无害的茶色下藏着五种基酒的烈性,后劲十足。\n17%abv 长饮' },
         { id: 18, name: 'Daiquiri', subName: '代其利', price: '38', color: '#6b7280', tags: '清爽 / 青柠 / 香料', desc: '百加得白朗姆 / 蔗园三星朗姆酒 / 青柠汁 / 基础糖浆 / 食盐\n海明威钟情的朗姆鸡尾酒，清凉又酸爽的味觉体验。\n20%abv 短饮' },
         { id: 35, name: 'Gin Fizz', subName: '金菲士', price: '38', color: '#DAC9A6', tags: '清爽 / 柠檬 / 气泡', desc: '必富达金酒 / 泰象气泡水 / 柠檬汁 / 基础糖浆 \n极致清爽的草本酸甜鸡尾酒。\n7%abv 长饮' },
         { id: 14, name: 'Coffee Martini', subName: '咖啡马天尼', price: '48', color: '#78350f', tags: '可可 / 咖啡 / 坚果', desc: '伏特加 / 咖啡利口酒 / 浓缩咖啡液 / 基础糖浆 \n非常规的味觉体验\n20%abv 短饮' },
@@ -831,8 +783,8 @@
     const fruitCocktailsList = [
         { id: 201, name: 'Brancolada', subName: '菲奈特飘香', price: '48', color: '#6b4226', tags: '长饮', desc: '意式苦酒的tiki架构版本\n13%abv' },
         { id: 202, name: 'Farewell', subName: '谢幕', price: '48', color: '#4c0519', tags: '短饮', desc: '理bar第一阶段即将结束。\n16%abv' },
-        { id: 203, name: 'Long Island Iced Tea', subName: '长岛冰茶', price: '38', color: '#1e3a8a', tags: '长饮', desc: '无害的茶色下藏着五种基酒的烈性,后劲十足。\n17%abv ' },
-        { id: 204, name: 'Zombie', subName: '僵尸', price: '38', color: '#166534', tags: '长饮', desc: '畅销的热带经典\n13%abv' },
+        { id: 203, name: 'Long Island Iced Tea', subName: '长岛冰茶', price: '48', color: '#1e3a8a', tags: '长饮', desc: '无害的茶色下藏着五种基酒的烈性,后劲十足。\n17%abv ' },
+        { id: 204, name: 'Zombie', subName: '僵尸', price: '48', color: '#166534', tags: '长饮', desc: '畅销的热带经典\n13%abv' },
         { id: 205, name: 'Gimlet', subName: '琴蕾', price: '38', color: '#6b7280', tags: '短饮', desc: '青柠的酸与金酒的凛冽，干净利落\n20%abv' },
         { id: 206, name: 'Bale', subName: '芭乐', price: '48', color: '#C46243', tags: '短饮', desc: '顾客要求用芭乐做酒，我创作了这杯，吧台的所有人都喜欢。\n15%abv' },
         { id: 207, name: 'Tommy Margarita', subName: '汤米玛格丽特', price: '38', color: '#b45309', tags: '长饮', desc: '酸甜咸 易饮\n13%abv' },
